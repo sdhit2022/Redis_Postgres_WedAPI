@@ -55,7 +55,7 @@ public class DriversController : ControllerBase
     [HttpDelete("DeleteDriver")]
     public async Task<IActionResult> Delete(int id)
     {
-        var exist = _context.Drivers.FirstOrDefaultAsync(x=>x.Id== id);
+        var exist =await _context.Drivers.FirstOrDefaultAsync(x=>x.Id== id);
         if(exist != null)
         {
             _context.Remove(exist);
